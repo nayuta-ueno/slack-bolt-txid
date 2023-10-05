@@ -40,7 +40,8 @@ app.message(/[0-9a-fA-F]{64}/, async ({ message, say }) => {
       if (element.prevout.scriptpubkey_address) {
           const addr = element.prevout.scriptpubkey_address;
           const value = element.prevout.value;
-          result += `<${getAddrUrl(addr)}|${addr}> \`${BigNumber(value).toFormat()}\` sats\n`;
+          // result += `<${getAddrUrl(addr)}|${addr}> \`${BigNumber(value).toFormat()}\` sats\n`;
+          result += `${value},${addr}\n`;
       }
   });
   // vout
@@ -49,7 +50,8 @@ app.message(/[0-9a-fA-F]{64}/, async ({ message, say }) => {
       if (element.scriptpubkey_address) {
           const addr = element.scriptpubkey_address;
           const value = element.value;
-          result += `<${getAddrUrl(addr)}|${addr}> \`${BigNumber(value).toFormat()}\` sats\n`;
+          // result += `<${getAddrUrl(addr)}|${addr}> \`${BigNumber(value).toFormat()}\` sats\n`;
+          result += `${value},${addr}\n`;
       }
   });
 
